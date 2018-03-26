@@ -1,0 +1,43 @@
+{
+  "name": "gatsby-plugin-google-tag-manager",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Gerald Yeo <gerald.yeo@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:geraldyeo/gatsby-plugin-gtm.git"
+  },
+  "license": "MIT",
+  "scripts": {
+    "build": "babel src --out-dir . --ignore __tests__",
+    "watch": "yarn run build -w",
+    "prepublishOnly": "cross-env NODE_ENV=production yarn run build",
+    "publish": "semantic-release",
+    "publish:dry-run": "semantic-release --debug --dry-run --no-ci"
+  },
+  "dependencies": {
+    "babel-runtime": "^6.26.0",
+    "js-cookie": "^2.2.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "cross-env": "^5.1.4",
+    "semantic-release": "^15.1.4"
+  },
+  "peerDependencies": {
+    "gatsby": "^1.0.0",
+    "react": "^16.2.0"
+  },
+  "release": {
+    "publish": [
+      "@semantic-release/github",
+      "@semantic-release/npm"
+    ],
+    "verifyConditions": [
+      "@semantic-release/github",
+      "@semantic-release/npm"
+    ]
+  }
+}
